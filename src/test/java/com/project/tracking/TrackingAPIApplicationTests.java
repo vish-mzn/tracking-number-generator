@@ -1,10 +1,10 @@
-package com.project.numbergenerator;
+package com.project.tracking;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TrackingNumberGeneratorApplicationTests {
+class TrackingAPIApplicationTests {
 
 	@Test
 	void contextLoads() {
