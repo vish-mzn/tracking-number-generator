@@ -1,5 +1,6 @@
 package com.project.tracking.util;
 
+import java.security.SecureRandom;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
@@ -17,10 +18,14 @@ public class NumberGeneratorUtil {
 		
 		String date = createdAt.format(DateTimeFormatter.ofPattern("yyMMdd"));
 		
-		int uuidHash = Math.abs(UUID.randomUUID().hashCode()) & 0xFFFFFF;
-		
-		String base36Hash = Integer.toString(uuidHash, 36).toUpperCase();
+		SecureRandom random = new SecureRandom();
+		int hash = random.nextInt(0x1000000);
+		String base36Hash = Integer.toString(hash, 36).toUpperCase();
 		String paddedHash = String.format("%6s", base36Hash).replace(' ', '0');
+		
+//		int uuidHash = Math.abs(UUID.randomUUID().hashCode()) & 0xFFFFFF;
+//		base36Hash = Integer.toString(uuidHash, 36).toUpperCase();
+//		paddedHash = String.format("%6s", base36Hash).replace(' ', '0');
 		
 		String trackingNumber = String.join("", origin, destination, date, paddedHash);
 		
