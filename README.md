@@ -46,20 +46,61 @@ GET http://localhost:8080/next-tracking-number?origin_country_id=MY&destination_
 
 ## 🚀 Deployment
 You can deploy to:
-- [Render](https://render.com/)
-- [Railway](https://railway.app/)
 - [Heroku](https://www.heroku.com/)
-- [Fly.io](https://fly.io/)
+1. Make sure you have an heroku verified account.
+STEP 1 : Need to create the heroku app (a new app within heroku environment)
+```
+heroku create
+
+Creating app... done, ⬢ cryptic-journey-79303
+https://cryptic-journey-79303-ca2113a2dabd.herokuapp.com/ | https://git.heroku.com/cryptic-journey-79303.git
+```
+It will create a new repository and provide you a secure url to access your application.
+One you have done STEP 1 that means you already created a repository within heroku env.
+
+STEP 2 : Verify the heroku repository
+```
+git remote 
+
+heroku
+origin
+```
+
+STEP 3 : PUSHING to heroku repository
+```
+git push heroku master
+
+this will push your local repo code to heroku app you just created
+and heroku itself will take care of the build and deployment of your application
+```
+
+STEP 4 : Verify your changes are available online
+```
+you can access your application using the url provided by heroku at the time of project creation
+
+https://cryptic-journey-79303-ca2113a2dabd.herokuapp.com/
+
+Then if you want to add the swagger url that also you can do
+```
+
+---
+
+## SWAGGER CONFIG
+```
+http://localhost:9090/swagger-ui/index.html
+
+https://cryptic-journey-79303-ca2113a2dabd.herokuapp.com/swagger-ui/index.html
+```
 
 ---
 
 ## 📦 Build & Run Locally
 ```bash
 # Build
-./gradlew clean build
+mvn clean build
 
 # Run
-./gradlew bootRun
+mvn bootRun
 ```
 
 ---
